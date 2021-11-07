@@ -1,2 +1,2 @@
 # Home-Work
-Variant #1
+Variant #2
