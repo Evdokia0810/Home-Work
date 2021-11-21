@@ -11,7 +11,7 @@ double dotProd(const double v1 [2], const double v2 [2]) {
 
 int main() {
     ifstream input;
-    input.open("<Absolute file path goes here>"); // input data stream
+    input.open("in.txt"); // input data stream
     if (!input) {
         cerr << "ERROR: can not open the file\n";
         return 0;
