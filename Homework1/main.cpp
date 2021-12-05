@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>  // reading a file
-#include <limits>   // std::numeric_limits<double>::max()
 
 using namespace std;
 
@@ -26,30 +25,24 @@ int main() {
     double norm[2] = {-dir[1], dir[0]};
     // read points and dynamically compute extremals
     double point[2]; // input point
-    double leftmost[2], rightmost[2];
-    double leftMax  = -numeric_limits<double>::max(); // yes, exactly this way
-    double rightMin = numeric_limits<double>::max(); // assign max to min and min to max to get right comparisons
+    double leftmost[2] =  {0, 0}, rightmost[2] = {0, 0};
+    double leftMax  = 0, rightMin = 0;
     while (input >> point[0] >> point[1]) {
         // actually we don't have to normalize \norm
         double dist = dotProd(norm, point);
-        if (dist > leftMax) {
+        if (dist >= leftMax) {
             leftMax = dist;
             leftmost[0] = point[0];
             leftmost[1] = point[1];
         }
-        if (dist < rightMin) {
+        if (dist <= rightMin) {
             rightMin = dist;
             rightmost[0] = point[0];
             rightmost[1] = point[1];
         }
     }
     input.close();
-    if (leftMax < rightMin) {
-        // only possible when there were no points
-        cout << "NO POINTS PASSED\n";
-    } else {
-        cout << "Leftmost: " << leftmost[0] << " " << leftmost[1] << endl;
-        cout << "Rightmost: " << rightmost[0] << " " << rightmost[1] << endl;
-    }
+    cout << "Leftmost: " << leftmost[0] << " " << leftmost[1] << endl;
+    cout << "Rightmost: " << rightmost[0] << " " << rightmost[1] << endl;
     return 0;
 }
