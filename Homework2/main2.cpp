@@ -73,7 +73,7 @@ int main(int argc, const char * argv[]) {
     
     //---- Iterations ----//
     double dx = 0, dt = 0, h0 = 0;
-    size_t nextSection = -1, i = -1;
+    int nextSection = -1, i = -1;
     if (vx < 0) {
         i = currentSection; // will be recomputed to currentSection - 1 (*)
         nextSection = currentSection + 1; // will be recomputed to currentSection
