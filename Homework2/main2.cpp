@@ -69,7 +69,7 @@ int main(int argc, const char * argv[]) {
             currentSection = X.size();
         }
     }
-    const size_t N = X.size();
+    const int N = X.size();
     
     //---- Iterations ----//
     double dx = 0, dt = 0, h0 = 0;
